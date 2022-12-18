@@ -1,8 +1,4 @@
-ifeq ($(BUILD_LEGACY_ARM64E),1)
-	export TARGET = iphone:13.7:12.0
-else
-	export TARGET = iphone:latest:12.0
-endif
+export TARGET = iphone:latest:14.0
 
 FRAMEWORK_OUTPUT_DIR = $(THEOS_OBJ_DIR)/xcode_derived/install/Library/Frameworks
 ALDERIS_SDK_DIR = $(THEOS_OBJ_DIR)/alderis_sdk_$(THEOS_PACKAGE_BASE_VERSION)
@@ -18,7 +14,7 @@ XCODEPROJ_NAME = Alderis
 
 FINALPACKAGE = 1
 
-Alderis_XCODEFLAGS = DYLIB_INSTALL_NAME_BASE=/Library/Frameworks BUILD_LIBRARY_FOR_DISTRIBUTION=YES ARCHS="$(ARCHS)"
+Alderis_XCODEFLAGS = DYLIB_INSTALL_NAME_BASE=/Library/Frameworks BUILD_LIBRARY_FOR_DISTRIBUTION=YES ARCHS="$(ARCHS)" -quiet
 
 SUBPROJECTS = lcpshim
 
